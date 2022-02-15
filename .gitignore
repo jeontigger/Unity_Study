@@ -11,3 +11,4 @@ First Game
 My project/.vsconfig
 My project/Assembly-CSharp.csproj
 My project/My project.sln
+*.meta

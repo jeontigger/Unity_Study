@@ -12,6 +12,7 @@ ctrl + p = play
 ## 싱글톤
 
 ```
+MonoBehaviour 클래스를 상속해야만 컴포넌트로 붙일 수 있어진다.
 static instance를 선언하고, Start할 때 instance를 넣어준다.
 Start할 때 넣어주면 파일이 없을 때 에러가 날 수 있기 때문에 Init()을 만들어 넣어준다
 GameObject.Find("@Managers");로 찾아보고 없다면 new GameObject{name="@Managers"};로 만들어준다
@@ -40,4 +41,31 @@ transform.position => 위치값 조정, Vector 형식으로 조정
 ```
 한번 만든걸 저장하면 모두 담겨져서 나옴
 Nested Prefab은 Prefab을 중첩시키는 것
+Resources폴더 안에 넣어두면 Resources 클래스에서 Load할 수 있다.
+```
+
+## Collision
+
+```
+Rigidbody 컴포넌트 사용
+collider는 양쪽에 모두 있어야 멈춤
+OnCollisionEnter 조건
+ - 나한테 RigidBody가 있어야 함(IsKinematic: Off)
+ - 둘 다 Collider가 있어야 함(IsTrigger: Off)
+OnTriggerEnter 조건
+ - 둘 다 Collider가 있어야 함
+ - 둘 중 하나는 IsTrigger: On
+ - 둘 중 하나는 RigidBody가 있어야 함
+Physics.Raycast로 감지 가능
+Screen좌표계 - 화면상의 픽셀단위
+Viewport좌표계 - Screen좌표계를 비율로 변환한것
+Input.GetMousbutton(0) - 왼클릭 체크
+Raycast를 이용 - Vector3 or Ray 구조체를 이용함
+LayerMask 구조체를 통해 Ray를 지정해줄 수도 있다
+```
+
+## 카메라
+
+```
+
 ```
