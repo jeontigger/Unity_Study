@@ -67,5 +67,22 @@ LayerMask 구조체를 통해 Ray를 지정해줄 수도 있다
 ## 카메라
 
 ```
+RayCast로 플레이어부터 거리를 재고, 그 사이에 hit 되는게 있다면 카메라를 조정도 해줌
+position을 플레이어 움직임을 따라 고정시킨다
+Update()로 만들면 작동 순서가 뒤죽박죽이 될 수 있어서 LateUpdate()로 함수 변경
+LookAt()은 목적지를 향해 바로 쳐다본다.
+```
+
+## Animation
+
+```
+AnimatorController 파일이 따로 존재함 (C# 스크립트 파일이 아님)
+AnimatorController에서 모두 처리하는 것이 아니라 Animation만 넣고 그 동작들을 스크립트에서 제어하는게 의외였음
+ -> 알고보니 AnimatorController에서 처리하는게 편함(?)
+ -> 파라미터를 transition의 condition에 넣고, 파라미터만 스크립트에서 관리하는게 굿
+Animator 구조체로 컴포넌트를 가져오고 Play로 동작을 수행시킴
+Blend 하여 애니메이션을 부드럽게 만들어줌
+float 변수를 하나 선언해서 Lerp를 통해 천천히 변화시키고, 그 변수를 SetFloat해줌
+애니메이션이 많아질수록 구분해야하는 상태 변수가 많아지기때문에 Enum으로 구분해서 함수로 나눠줌
 
 ```
