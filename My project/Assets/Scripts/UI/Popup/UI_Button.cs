@@ -5,10 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class UI_Button : UI_Base
+public class UI_Button : UI_Popup
 {
-    [SerializeField]
-    Text _text;
     int _score = 0;
 
     enum Texts
@@ -33,23 +31,29 @@ public class UI_Button : UI_Base
 
     private void Start()
     {
+        Init();
+
+    }
+    public override void Init()
+    {
+        base.Init();
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
         Bind<Image>(typeof(Images));
         Bind<GameObject>(typeof(GameObjects));
 
-        GameObject go = GetImage((int)Images.ItemIcon).gameObject;
-        UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
-        evt.OnDragHandler += ((PointerEventData data) => { go.gameObject.transform.position = data.position; });
+        GetButton((int)Buttons.PointButton).gameObject.BindEvent(OnButtonClicked);
 
+        GameObject go = GetImage((int)Images.ItemIcon).gameObject;
+        BindEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
 
 
     }
-    public void OnButtonClicked()
+    public void OnButtonClicked(PointerEventData data)
     {
         Debug.Log("Button Clicked!");
 
         _score++;
-        _text.text = $"점수 : {_score}점";
+        GetText((int)Texts.ScoreText).text = $"점수 : {_score}";
     }
 }

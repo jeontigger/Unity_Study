@@ -84,5 +84,18 @@ Animator 구조체로 컴포넌트를 가져오고 Play로 동작을 수행시�
 Blend 하여 애니메이션을 부드럽게 만들어줌
 float 변수를 하나 선언해서 Lerp를 통해 천천히 변화시키고, 그 변수를 SetFloat해줌
 애니메이션이 많아질수록 구분해야하는 상태 변수가 많아지기때문에 Enum으로 구분해서 함수로 나눠줌
+```
 
+## UI
+
+```
+버튼 안에 OnClick 콜백기능을 유니티 자체에서 연결 가능 -> 규모가 커지면 연결하는것만으로 관리하기 어렵기 때문에 코드로 자동화 구현
+EventSystem.current.isPointerOverGameObject()로 UI가 클릭되는지 알 수 있음
+ -> UI 클릭시 다른 동작(움직임)을 하지 않도록 해야함
+Manager.Resource.Instantiate로 prefab을 불러오게끔 해놨음
+enum을 사용함(Texts, Buttons, Images, GameObjects)
+Bind로 enum과 실제 오브젝트랑 묶어준다 이 때 Reflection 기법으로 Bind, <T>로 컴포넌트 까지 구분
+Dictionary(Type, Object[])로 오브젝트 목록 유지, FindChild를 구현 목록 찾음
+Get함수로 오브젝트를 가져온다 이 때 만들어둔 이벤트 핸들러 Action에 등록한다
+UI Manager를 통해 Sort Order를 조정한다
 ```
