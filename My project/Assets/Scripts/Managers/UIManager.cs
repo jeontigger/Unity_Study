@@ -102,6 +102,6 @@ public class UIManager
         if (parent != null)
             go.transform.SetParent(parent);
 
-        return go.GetComponent<T>();
+        return go.GetOrAddComponent<T>();
     }
 }

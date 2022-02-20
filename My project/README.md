@@ -99,3 +99,9 @@ Dictionary(Type, Object[])로 오브젝트 목록 유지, FindChild를 구현 �
 Get함수로 오브젝트를 가져온다 이 때 만들어둔 이벤트 핸들러 Action에 등록한다
 UI Manager를 통해 Sort Order를 조정한다
 ```
+
+## Scene
+
+```
+Start는 컴포넌트가 켜져있어야만 하지만, Awake는 꺼져있어도 가능(Start보다 빠르다)
+```
