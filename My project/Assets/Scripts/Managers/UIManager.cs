@@ -36,6 +36,7 @@ public class UIManager
             canvas.sortingOrder = 0;
         }
     }
+
     public T ShowSceneUI<T>(string name = null) where T : UI_Scene
     {
         if (string.IsNullOrEmpty(name))
@@ -103,5 +104,11 @@ public class UIManager
             go.transform.SetParent(parent);
 
         return go.GetOrAddComponent<T>();
+    }
+
+    public void Clear()
+    {
+        CloseAllPopupUI();
+        _sceneUI = null;
     }
 }

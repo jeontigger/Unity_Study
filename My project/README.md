@@ -104,4 +104,17 @@ UI Manager를 통해 Sort Order를 조정한다
 
 ```
 Start는 컴포넌트가 켜져있어야만 하지만, Awake는 꺼져있어도 가능(Start보다 빠르다)
+SceneManager가 이미 있어 Ex를 붙여 새로 정의
+SceneManager.LoadScene(string)으로 가능
+```
+
+## Sound
+
+```
+AudioSound, AudioClip, AudioListener가 있어야 함
+리스너는 한 씬에 하나만 있으면 되고, 대부분 카메라에 달려있음
+PlayOneShot 함수는 한꺼번에 같이 나오게 할 수도 있음
+rect transform이 아닌 오브젝트들은 SetParent가 아니라 parent 프로퍼티로 부모를 지정해준다.
+Dictionary의 TryGetValue 함수로 캐싱도 설계함
+하나의 함수에서 다른 버전의 함수를 응용하는 방법을 활용하자
 ```
