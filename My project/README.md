@@ -126,3 +126,13 @@ Dictionary의 TryGetValue 함수로 캐싱도 설계함
 컴포넌트로 풀하는 오브젝트인지 아닌지 구분함
 프리팹에서 드래그 드롭하는걸 코드로 한다고 생각하면 됨
 ```
+
+## Coroutine(코루틴)
+
+```
+엄청 오래 걸리는 작업을 잠시 끊거나, 원하는 타이밍에 함수를 잠시 멈춤/복원 하는 경우
+return -> 원하는 타입으로 가능
+yield return은 일시적인 정지이고, yield break가 절대적인 종료
+시간 관리에 있어서 엄청난 강점이 있음, WaitForSeconds와 StartCoroutine을 이용함
+
+```

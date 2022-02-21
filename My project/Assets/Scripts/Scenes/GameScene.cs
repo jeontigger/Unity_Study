@@ -10,6 +10,14 @@ public class GameScene : BaseScene
         //Temp
         SceneType = Define.Scene.Game;
         Managers.UI.ShowSceneUI<UI_Inven>();
+        StartCoroutine("ExplodeAfterSeconds", 4.0f);
+    }
+
+    IEnumerator ExplodeAfterSeconds(float seconds)
+    {
+        Debug.Log("Explode Enter");
+        yield return new WaitForSeconds(seconds);
+        Debug.Log("Bomb!");
     }
 
     public override void Clear()
