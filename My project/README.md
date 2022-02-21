@@ -134,5 +134,13 @@ Dictionary의 TryGetValue 함수로 캐싱도 설계함
 return -> 원하는 타입으로 가능
 yield return은 일시적인 정지이고, yield break가 절대적인 종료
 시간 관리에 있어서 엄청난 강점이 있음, WaitForSeconds와 StartCoroutine을 이용함
+```
 
+## Data Manager
+
+```
+세이브 시스템이 아니라, 수치들을 다루는 매니저
+JSON과 XML을 활용하는 것
+JSON이 대세
+[]는 리스트, {}는 스트럭트라고 생각하면 됨
 ```
