@@ -37,6 +37,7 @@ public class ResourceManager
         go.name = original.name;
         return go;
     }
+    
     public void Destroy(GameObject go)
     {
         if (go == null)

@@ -11,16 +11,24 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     GameObject _player = null;
 
+    public void SetPlayer(GameObject player) { _player = player; }
+
     void Start()
     {
 
     }
     void LateUpdate()
     {
+
         if (_mode == Define.CameraMode.QuarterView)
         {
+            if (!_player.IsValid())
+            {
+                Debug.Log("here?");
+                return;
+            }
             RaycastHit hit;
-            if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Wall")))
+            if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Block")))
             {
                 float dist = (hit.point - _player.transform.position).magnitude * 0.8f;
                 transform.position = _player.transform.position + _delta.normalized * dist + transform.up;
